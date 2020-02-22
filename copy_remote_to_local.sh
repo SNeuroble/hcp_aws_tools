@@ -22,6 +22,7 @@ tasks=('REST' 'LANGUAGE')
 #tasks=('EMOTION' 'GAMBLING' 'SOCIAL' 'RELATIONAL' 'MOTOR' 'WM' 'LANGUAGE')
 directions=('LR')
 #directions=('LR' 'RL')
+subIDs_prefix='_subIDs.txt'
 
 #### Mount
 
@@ -37,7 +38,7 @@ for i in "${!tasks[@]}"; do
         this_scan="${tasks[$i]}_${directions[$j]}"
         #printf "${this_scan}\n"
         #source_data_pattern="${source_archives_dir}/${this_scan}*.z*"
-        subIDs_file="${source_base_dir}/${this_scan}_subIDs.txt"
+        subIDs_file="${source_base_dir}/${this_scan}${subIDs_prefix}"
 
         main_zipfile_prefix="${target_base_dir}/${this_scan}_archive"
         if [ ! -f "${main_zipfile_prefix}.zip" ]; then
@@ -55,7 +56,7 @@ for i in "${!tasks[@]}"; do
 
         if [ ! -d "${target_unzipped_dir}${this_scan}" ]; then
             mv "${target_base_dir}${mounted_source_dir}${this_scan}" "${target_unzipped_dir}"
-            mv "${target_base_dir}${this_scan}_subIDs.txt" "${target_unzipped_dir}"
+            mv "${target_base_dir}${this_scan}${subIDs_prefix}" "${target_unzipped_dir}"
         fi
     
     done
