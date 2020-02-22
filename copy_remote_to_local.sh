@@ -37,14 +37,14 @@ for i in "${!tasks[@]}"; do
         this_scan="${tasks[$i]}_${directions[$j]}"
         #printf "${this_scan}\n"
         #source_data_pattern="${source_archives_dir}/${this_scan}*.z*"
-        subnames_file="${source_base_dir}/${this_scan}_subnames.txt"
+        subIDs_file="${source_base_dir}/${this_scan}_subIDs.txt"
 
         main_zipfile_prefix="${target_base_dir}/${this_scan}_archive"
         if [ ! -f "${main_zipfile_prefix}.zip" ]; then
             exit
             printf "Copying ${main_zipfile_prefix}* zipfiles.\n"
             cp ${source_archives_dir}/${this_scan}*.z* $target_base_dir
-            cp $subnames_file $target_base_dir
+            cp $subIDs_file $target_base_dir
         fi
 
         if [ ! -d "${target_base_dir}${mounted_source_dir}${this_scan}" ]; then
@@ -55,7 +55,7 @@ for i in "${!tasks[@]}"; do
 
         if [ ! -d "${target_unzipped_dir}${this_scan}" ]; then
             mv "${target_base_dir}${mounted_source_dir}${this_scan}" "${target_unzipped_dir}"
-            mv "${target_base_dir}${this_scan}_subnames.txt" "${target_unzipped_dir}"
+            mv "${target_base_dir}${this_scan}_subIDs.txt" "${target_unzipped_dir}"
         fi
     
     done

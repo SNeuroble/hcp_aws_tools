@@ -13,8 +13,8 @@ for this_task=tasks
     RL_scan=[task_condition,'_RL'];
     LR_scan=[task_condition,'_RL'];
 
-    RL_subIDs_file=[data_dir,RL_scan,'_subnames_short.txt'];
-    LR_subIDs_file=[data_dir,LR_scan,'_subnames_short.txt'];
+    RL_subIDs_file=[data_dir,RL_scan,'_subIDs.txt'];
+    LR_subIDs_file=[data_dir,LR_scan,'_subIDs.txt'];
 
     RL_subIDs=fileread(RL_subIDs_file);
     LR_subIDs=fileread(LR_subIDs_file);
