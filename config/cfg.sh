@@ -1,7 +1,7 @@
 ## For getting and preparing data on remote
 
 # scan info
-task=('REST' 'RELATIONAL')
+task=('LANGUAGE')
 #task=('EMOTION' 'GAMBLING' 'SOCIAL' 'MOTOR' 'WM' 'RELATIONAL')
 #task=('REST' 'LANGUAGE' 'EMOTION' 'GAMBLING' 'SOCIAL' 'MOTOR' 'WM' 'RELATIONAL')
 encoding=('LR' 'RL')
@@ -28,10 +28,10 @@ key_file="/mridata2/home2/smn33/.ssh/MRCInstance1.pem"
 # data folders
 local_data_dir='/data15/mri_group/smn33_data/hcp_1200'
 
-local_source_base_dir="$local_data_dir/mnt"
-mounted_source_dir=${target_base_dir}
-mounted_archives_dir="${source_base_dir}/archives/"
+local_source_base_dir="$local_data_dir/mnt2"
+mounted_source_dir=${archives_dir}
+mounted_archives_dir="$local_source_base_dir"
 
-local_target_archives_dir="$local_data_dir/archives/"
-local_target_unzipped_dir="$local_data_dir/matrices/"
+local_target_archives_dir="$local_data_dir/archives"
+local_target_unzipped_dir="$local_data_dir/matrices"
 
