@@ -1,11 +1,11 @@
-function average_RL_LR(data_dir,task_list,scan_type)
+function average_RL_LR__octave(data_dir,task_list,scan_type)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % Combines RL and LR data; designed for HCP - modified slightly for octave
 % e.g., average_RL_LR('/data15/mri_group/smn33_data/hcp_1200/matrices/',{'REST' 'LANGUAGE'},'_GSR_matrix.txt')
 %tasks=('EMOTION' 'GAMBLING' 'SOCIAL' 'MOTOR' 'WM' 'LANGUAGE' 'REST')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-pkg load io % for cell2csv, or use attached function from Sylvain Fiedler
+%pkg load io % for cell2csv, or use attached function from Sylvain Fiedler
 page_screen_output (0); % print
 subIDs_suffix='_subIDs.txt';
 
