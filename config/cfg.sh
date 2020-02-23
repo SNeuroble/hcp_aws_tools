@@ -2,6 +2,7 @@
 
 # scan info
 task=('LANGUAGE')
+#task=('LANGUAGE' 'MOTOR' 'WM')
 #task=('EMOTION' 'GAMBLING' 'SOCIAL' 'MOTOR' 'WM' 'RELATIONAL')
 #task=('REST' 'LANGUAGE' 'EMOTION' 'GAMBLING' 'SOCIAL' 'MOTOR' 'WM' 'RELATIONAL')
 encoding=('LR' 'RL')
