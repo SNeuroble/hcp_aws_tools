@@ -1,24 +1,8 @@
 #!/bin/bash
 # copy data from bucket to local AWS instance
 
-# scan info
-#task=('EMOTION' 'GAMBLING' 'SOCIAL' 'MOTOR' 'WM' 'LANGUAGE')
-#task=('EMOTION' 'GAMBLING' 'SOCIAL' 'RELATIONAL' 'MOTOR' 'WM' 'LANGUAGE' 'REST')
-search_str="_GSR_matrix"
-
-# copy and/or zip?
-copy=0;
-zip=0;
-
-# paths
-username=$(echo $USER)
-yale_bucket_key="/home/$username/.s3cmd_saved_configs/yale_bucket_access"
-source_base_dir="s3://hcpoutput/S1200/Shen268"
-target_base_dir="/home/$username/data/matrices"
-archives_dir="$target_base_dir/archives/"
-
-encoding=('LR' 'RL')
-subIDs_prefix='_subIDs.txt'
+# config file
+source $1
 
 mkdir -p $archives_dir
 for j in "${!encoding[@]}"; do
@@ -32,7 +16,6 @@ for j in "${!encoding[@]}"; do
         subIDs_file="${target_base_dir}/${this_scan}${subIDs_prefix}"
         zip_file="${archives_dir}/${this_scan}_archive.zip"
 
-        if (( $copy==1 )) ; then
 
             mkdir -p $target_dir
 
@@ -48,16 +31,11 @@ for j in "${!encoding[@]}"; do
                 s3cmd -c ${yale_bucket_key} get $line "${target_dir}";
             done < "${filenames}"
         
-        fi
             # make subIDs file
             cp $filenames $subIDs_file
             sed -e "s#$source_dir##g" -i "$subIDs_file"
             sed -e "s#_${this_scan}${search_str}.txt##g" -i "$subIDs_file"
 
-
-        if (( $zip==1 )) ; then
-            zip -r -s 100m ${zip_file} ${target_dir}
-        fi
 
     done
 done
