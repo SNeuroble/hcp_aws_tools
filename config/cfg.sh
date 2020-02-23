@@ -2,8 +2,6 @@
 
 # scan info
 task=('SOCIAL')
-#task=('LANGUAGE' 'MOTOR' 'WM')
-#task=('EMOTION' 'GAMBLING' 'SOCIAL' 'MOTOR' 'WM' 'RELATIONAL')
 #task=('REST' 'LANGUAGE' 'EMOTION' 'GAMBLING' 'SOCIAL' 'MOTOR' 'WM' 'RELATIONAL')
 encoding=('LR' 'RL')
 search_str="_GSR_matrix"
