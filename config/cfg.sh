@@ -34,5 +34,4 @@ mounted_source_dir=${archives_dir}
 mounted_archives_dir="$local_source_base_dir"
 
 local_target_archives_dir="$local_data_dir/archives"
-local_target_unzipped_dir="$local_data_dir/matrices"
-
+local_target_data_dir="$local_data_dir/matrices"
