@@ -1,7 +1,7 @@
 function average_RL_LR__octave(data_dir,task_list,scan_type)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % Combines RL and LR data; designed for HCP - modified slightly for octave
-% e.g., average_RL_LR('/data15/mri_group/smn33_data/hcp_1200/matrices/',{'REST' 'LANGUAGE'},'_GSR_matrix.txt')
+% e.g., average_RL_LR('/home/ubuntu/data/matrices/',{'REST' 'LANGUAGE'},'_GSR_matrix.txt')
 %tasks=('EMOTION' 'GAMBLING' 'SOCIAL' 'MOTOR' 'WM' 'LANGUAGE' 'REST')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
