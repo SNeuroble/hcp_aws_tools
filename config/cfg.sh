@@ -1,7 +1,7 @@
 ## For getting and preparing data on remote
 
 # scan info
-task=('LANGUAGE')
+task=('SOCIAL')
 #task=('LANGUAGE' 'MOTOR' 'WM')
 #task=('EMOTION' 'GAMBLING' 'SOCIAL' 'MOTOR' 'WM' 'RELATIONAL')
 #task=('REST' 'LANGUAGE' 'EMOTION' 'GAMBLING' 'SOCIAL' 'MOTOR' 'WM' 'RELATIONAL')
