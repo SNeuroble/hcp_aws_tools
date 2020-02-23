@@ -14,6 +14,6 @@ for i in "${!task[@]}"; do
 	zip_file="${archives_dir}/${this_scan}_archive.zip"
 
 	zip -r -s 100m ${zip_file} ${target_dir}
-	cp ${subIDs_file} ${target_dir}
+	cp ${subIDs_file} ${archives_dir}
 
 done
