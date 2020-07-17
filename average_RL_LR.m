@@ -10,8 +10,8 @@ for this_task=tasks
     %% Compare IDs (thanks https://www.mathworks.com/matlabcentral/answers/358722-how-to-compare-words-from-two-text-files-and-get-output-as-number-of-matching-words)
     
     % get IDs
-    RL_scan=[task_condition,'_RL'];
-    LR_scan=[task_condition,'_RL'];
+    RL_scan=[this_task,'_RL'];
+    LR_scan=[this_task,'_LR'];
 
     RL_subIDs_file=[data_dir,RL_scan,'_subIDs.txt'];
     LR_subIDs_file=[data_dir,LR_scan,'_subIDs.txt'];

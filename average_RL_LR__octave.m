@@ -18,7 +18,7 @@ for j=1:length(task_list)
 
     % get IDs
     RL_scan=[task,'_RL'];
-    LR_scan=[task,'_RL'];
+    LR_scan=[task,'_LR'];
 
     RL_subIDs_file=[data_dir,RL_scan,subIDs_suffix]
     LR_subIDs_file=[data_dir,LR_scan,subIDs_suffix];
