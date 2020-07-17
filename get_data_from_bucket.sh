@@ -26,7 +26,7 @@ for j in "${!encoding[@]}"; do
             # copy files
             printf "Copying data from $source_dir to ${target_dir}.\n"
             while read -r line; do
-                s3cmd -c ${bucket_key} get $line "${target_dir}";
+                s3cmd -c ${bucket_key} get --skip-existing $line "${target_dir}";
             done < "${filenames}"
         
             # make subIDs file

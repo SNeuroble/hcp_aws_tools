@@ -5,11 +5,12 @@ function average_RL_LR(data_dir,tasks,scan_type)
 %tasks=('EMOTION' 'GAMBLING' 'SOCIAL' 'MOTOR' 'WM' 'LANGUAGE' 'REST')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-for this_task=tasks
+for task=tasks
 
     %% Compare IDs (thanks https://www.mathworks.com/matlabcentral/answers/358722-how-to-compare-words-from-two-text-files-and-get-output-as-number-of-matching-words)
     
     % get IDs
+    this_task=task{1};
     RL_scan=[this_task,'_RL'];
     LR_scan=[this_task,'_LR'];
 
@@ -26,15 +27,16 @@ for this_task=tasks
     fprintf(['Comparing subject IDs from from RL (',RL_subIDs_file,') with IDs from LR (',LR_subIDs_file,').\n']);
     [subIDs_intersect,~,~]=intersect(RL_subIDs,LR_subIDs);
     subIDs_intersect=subIDs_intersect(2:end); % bc the first find is empty - TODO add a check here first
+    dlmwrite([data_dir,this_task,'_subIDs.txt'],subIDs_intersect','delimiter','');
     n_subs=length(subIDs_intersect);
-
+    return;
     %% Average data
 
     fprintf('Averaging data for %d subjects. Progress:\n',n_subs);
     mkdir([data_dir,this_task])
 
-    % for i = 1:n_subs
-    for i = 1:2
+     for i = 1:n_subs
+    %for i = 1:2
         this_file_RL = [data_dir,RL_scan,'/',subIDs_intersect{i},'_',RL_scan,scan_type];
         this_file_LR = [data_dir,LR_scan,'/',subIDs_intersect{i},'_',LR_scan,scan_type];
         data_RL = importdata(this_file_RL);
@@ -42,8 +44,9 @@ for this_task=tasks
         data_avg=(data_RL+data_LR)/2;
 
         this_file_avg = [data_dir,this_task,'/',subIDs_intersect{i},'_',this_task,'_GSR_matrix.txt'];
-        writematrix(this_file_avg, data_avg)
-
+        %writematrix(this_file_avg, data_avg) % only available in Matlab2019
+        dlmwrite(this_file_avg, data_avg,'delimiter','\t','precision',6);
+        
         % print every 50 subs (->loaded 50 x 2 encoding dirs)
         if mod(i,50)==0; fprintf('%d/%d  (x2 LRs)\n',i,n_subs); end
         end
